@@ -18,6 +18,7 @@ npm install mocha chai --save-dev
 npm install request --save-dev
 
 # Run
+run from directory with package.json
 npm test
 
 
