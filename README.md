@@ -8,7 +8,7 @@ install webdriver
 npm install selenium-webdriver
 
 #### install chromedriver
-macos: https://www.swtestacademy.com/install-chrome-driver-on-mac/
+macos: https://www.swtestacademy.com/install-chrome-driver-on-mac/<br>
 linux: https://makandracards.com/makandra/29465-install-chromedriver-on-linux
 
 #### install mocha and chai
