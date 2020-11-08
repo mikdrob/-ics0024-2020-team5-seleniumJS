@@ -1,0 +1,38 @@
+{
+  "name": "js-basics-demo",
+  "version": "0.0.1",
+  "description": "JS Basics Demo for JS course",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --progress --color",
+    "test": "mocha ./src/test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.cs.ttu.ee:midrob/js-basics-demo.git"
+  },
+  "author": "Misha",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "request": "^2.88.2",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "type": "module",
+  "keywords": [
+    "ES",
+    "MODULES",
+    "NODE",
+    "MODULES",
+    "JS"
+  ],
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0-alpha.7"
+  }
+}
