@@ -1,6 +1,8 @@
 import pkg from 'chai';
-const {assert} = pkg;
+import {By, until, Key} from "selenium-webdriver";
+const { assert } = pkg;
 import getDriver from '../driver_util/driver_util.js';
+import StatusCodes from '../page_objects/home_page.js'
 
 {
     describe, before, after, it
@@ -8,18 +10,29 @@ import getDriver from '../driver_util/driver_util.js';
 
 describe('Google Search', function () {
     let driver;
-    let googlesearchpage;
-    let searchresultspage;
+    let mainTitle = "Welcome to the-internet";
     this.timeout(50000);
 
-    before(async () => {
-        driver = await getDriver();
+    before(() => {
+        driver = getDriver();
+        StatusCodes().open(driver);
+    });
+    it ('correct url', async function () {
+        console.log(await driver.getCurrentUrl().getText());
+        assert.isTrue(StatusCodes().getCurrentUrl(driver).getText() == StatusCodes().getUISource());
+    })
+    it('can_go_to_home_page', async function () {
+        await StatusCodes().open(driver);
+        //console.log(await obj().isAt(driver).getText());
+        assert.isTrue(await StatusCodes().isAt(driver) == mainTitle);    
     });
 
-    it('Google Search Test', async function () {
-        driver.get('https://the-internet.herokuapp.com').then(function () {
-            assert.isTrue(driver.findElement(mainTitle).getText() == "Welcome to the-internet");
-            after(() => driver.quit());
-        });
+    it('Google Search Test',async function () {
+        await driver.findElement(By.linkText("Status Codes")).click();
+        await driver.findElement(By.linkText("200")).click();
+        await driver.findElement(By.linkText("here")).click();
+        console.log( await driver.getCurrentUrl());
+        //assert.isTrue(driver.getCurrentUrl() == "https://the-internet.herokuapp.com/status_codes/200");
     });
+    after(() => driver.quit());
 });
